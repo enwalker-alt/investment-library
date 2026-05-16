@@ -40,7 +40,7 @@ const timelineItems = [
     year: "2025–Present",
     title: "S&P Global — Private Markets Analyst",
     bullets: [
-      "Work on private markets data, financial statement workflows, and investment-adjacent analytical processes.",
+      "Analyze financial statements, capitalization tables, ownership structures, and other investment-related documents for leading global private equity and venture capital firms.",
       "Building this research library to move closer to public equity research and long-term investment management.",
     ],
   },
