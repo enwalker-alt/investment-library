@@ -1,65 +1,165 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+const resumeHref = "/resume/Ellis-Walker-Resume.pdf";
+
+const timelineItems = [
+  {
+    year: "2018",
+    title: "Fintech Bank Startup (IFEB) - Intern",
+    bullets: [
+      "First exposure to finance, banking, and entrepreneurship through work connected to a fintech banking environment.",
+      "Observed how financial products, business operations, and entrepreneurial decision-making interact in practice.",
+    ],
+  },
+  {
+    year: "2020–2024",
+    title: "University of Mississippi — B.B.A. Economics",
+    bullets: [
+      "Studied economics with coursework across markets, statistics, financial institutions, and applied analysis.",
+      "In an econometrics course, wrote a research paper on the correlation between interest rates and the stock market prices of financial institutions.",
+    ],
+  },
+  {
+    year: "2023",
+    title: "Fiserv — Corporate Accounting Intern",
+    bullets: [
+      "Assisted the corporate accounting team of a Fortune 200 financial services company.",
+      "Selected as one of four interns from a global intern class of 250+ to present to senior leaders and employees.",
+    ],
+  },
+  {
+    year: "2024",
+    title: "Strategic Financial Partners — Wealth Management Intern",
+    bullets: [
+      "Assisted with financial advising work for a firm with approximately $4B in assets under management.",
+      "Gained experience in client service, financial planning workflows, and professional communication.",
+    ],
+  },
+  {
+    year: "2025–Present",
+    title: "S&P Global — Private Markets Analyst",
+    bullets: [
+      "Work on private markets data, financial statement workflows, and investment-adjacent analytical processes.",
+      "Building this research library to move closer to public equity research and long-term investment management.",
+    ],
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <main>
+      <section className="home-hero section-shell">
+        <div className="hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">Personal Equity Research</p>
+
+            <h1>Ellis Walker</h1>
+
+            <p className="hero-subtitle">
+              Private markets analyst building a public library of fundamental
+              equity research focused on business quality, capital allocation,
+              intrinsic value, and long-term compounding.
+            </p>
+
+            <div className="button-row">
+              <Link href="/documents" className="button button-dark">
+                Research Library
+              </Link>
+
+              <a
+                href={resumeHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button button-light"
+              >
+                Resume
+              </a>
+            </div>
+          </div>
+
+          <div className="headshot-wrap">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/images/headshot.jpg"
+              alt="Ellis Walker headshot"
+              width={720}
+              height={900}
+              priority
+              className="headshot"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section id="timeline" className="timeline-section">
+        <div className="section-shell">
+          <div className="section-heading">
+            <p className="eyebrow">Background</p>
+            <h2>Education & Professional Timeline</h2>
+          </div>
+
+          <div className="timeline-list">
+            {timelineItems.map((item) => (
+              <div key={item.year} className="timeline-item">
+                <div className="timeline-year">{item.year}</div>
+
+                <div>
+                  <h3>{item.title}</h3>
+
+                  <ul>
+                    {item.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="contact-section">
+        <div className="section-shell">
+          <div className="section-heading compact">
+            <p className="eyebrow">Contact</p>
+            <h2>Get in touch</h2>
+          </div>
+
+          <div className="contact-card">
+            <div className="contact-row">
+              <span>Email</span>
+              <a href="mailto:ellisnelsonwalker@gmail.com">
+                ellisnelsonwalker@gmail.com
+              </a>
+            </div>
+
+            <div className="contact-row">
+              <span>LinkedIn</span>
+              <a
+                href="https://www.linkedin.com/in/elliswalk/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                linkedin.com/in/elliswalk
+              </a>
+            </div>
+
+            <div className="contact-row">
+              <span>Resume</span>
+              <a href={resumeHref} target="_blank" rel="noopener noreferrer">
+                View Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="footer-inner">
+          <p>© {new Date().getFullYear()} Ellis Walker</p>
+          <p>Personal research. Not investment advice.</p>
+        </div>
+      </footer>
+    </main>
   );
 }
