@@ -218,6 +218,9 @@ export default async function DocumentsPage({
   );
 
   const viewerSrc = selectedDocument ? getViewerSrc(selectedDocument) : "";
+  const selectedIsOfficeFile = selectedDocument
+    ? isOfficeFile(selectedDocument)
+    : false;
 
   return (
     <main>
@@ -233,6 +236,187 @@ export default async function DocumentsPage({
           </p>
         </div>
       </section>
+
+      {selectedDocument && (
+        <section
+          id="document-viewer"
+          style={{
+            width: "100%",
+            padding: "46px 24px 70px",
+            scrollMarginTop: "100px",
+            borderBottom: "1px solid #d8e7f1",
+          }}
+        >
+          <div
+            style={{
+              width: "min(1600px, calc(100vw - 48px))",
+              margin: "0 auto",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: "24px",
+                alignItems: "flex-end",
+                marginBottom: "22px",
+              }}
+            >
+              <div>
+                <p
+                  style={{
+                    fontSize: "12px",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    color: "#004b78",
+                    marginBottom: "10px",
+                  }}
+                >
+                  {selectedDocument.sectionTitle}
+                </p>
+
+                <h2
+                  style={{
+                    fontSize: "34px",
+                    lineHeight: "1.15",
+                    margin: 0,
+                  }}
+                >
+                  {selectedDocument.title}
+                </h2>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                  alignItems: "center",
+                }}
+              >
+                <a
+                  href="/documents"
+                  style={{
+                    border: "1px solid #d8e7f1",
+                    padding: "11px 16px",
+                    fontSize: "13px",
+                    color: "#111",
+                    textDecoration: "none",
+                    whiteSpace: "nowrap",
+                    background: "#ffffff",
+                  }}
+                >
+                  Back to List
+                </a>
+
+                <a
+                  href={selectedDocument.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    border: "1px solid #111",
+                    padding: "11px 16px",
+                    fontSize: "13px",
+                    color: "#111",
+                    textDecoration: "none",
+                    whiteSpace: "nowrap",
+                    background: "#ffffff",
+                  }}
+                >
+                  {getOpenLabel(selectedDocument)}
+                </a>
+              </div>
+            </div>
+
+            {viewerSrc ? (
+              <div
+                style={{
+                  width: "100%",
+                  height: "82vh",
+                  minHeight: "760px",
+                  border: "1px solid #d8e7f1",
+                  background: "#ffffff",
+                  overflow: "hidden",
+                  boxShadow: "0 18px 45px rgba(0, 33, 55, 0.08)",
+                }}
+              >
+                {selectedIsOfficeFile ? (
+                  <iframe
+                    title={selectedDocument.title}
+                    src={viewerSrc}
+                    style={{
+                      width: "133.333%",
+                      height: "133.333%",
+                      border: "none",
+                      display: "block",
+                      transform: "scale(0.75)",
+                      transformOrigin: "top left",
+                      background: "#ffffff",
+                    }}
+                  />
+                ) : (
+                  <iframe
+                    title={selectedDocument.title}
+                    src={viewerSrc}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      display: "block",
+                      background: "#ffffff",
+                    }}
+                  />
+                )}
+              </div>
+            ) : (
+              <div
+                style={{
+                  border: "1px solid #d8e7f1",
+                  padding: "36px",
+                  background: "#ffffff",
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "24px",
+                    marginBottom: "12px",
+                  }}
+                >
+                  Excel preview needs the live site URL.
+                </h3>
+
+                <p
+                  style={{
+                    color: "#40566b",
+                    lineHeight: "1.6",
+                    maxWidth: "760px",
+                    marginBottom: "20px",
+                  }}
+                >
+                  Excel files need the deployed website URL to be available to
+                  Microsoft’s viewer. In Vercel, set NEXT_PUBLIC_SITE_URL to
+                  your live domain, then redeploy.
+                </p>
+
+                <a
+                  href={selectedDocument.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-block",
+                    border: "1px solid #111",
+                    padding: "11px 16px",
+                    fontSize: "13px",
+                    color: "#111",
+                    textDecoration: "none",
+                  }}
+                >
+                  Open File Directly
+                </a>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="documents-section">
         <div className="documents-panel">
@@ -278,134 +462,6 @@ export default async function DocumentsPage({
             </div>
           ))}
         </div>
-      </section>
-
-      <section
-        id="document-viewer"
-        style={{
-          maxWidth: "1180px",
-          margin: "0 auto",
-          padding: selectedDocument ? "0 24px 80px" : "0 24px 40px",
-          scrollMarginTop: "120px",
-        }}
-      >
-        {selectedDocument && (
-          <div
-            style={{
-              borderTop: "1px solid #d8e7f1",
-              paddingTop: "36px",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "12px",
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: "#004b78",
-                marginBottom: "10px",
-              }}
-            >
-              {selectedDocument.sectionTitle}
-            </p>
-
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "24px",
-                alignItems: "center",
-                marginBottom: "22px",
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: "28px",
-                  lineHeight: "1.2",
-                  margin: 0,
-                }}
-              >
-                {selectedDocument.title}
-              </h2>
-
-              <a
-                href={selectedDocument.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  border: "1px solid #111",
-                  padding: "10px 16px",
-                  fontSize: "13px",
-                  color: "#111",
-                  textDecoration: "none",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {getOpenLabel(selectedDocument)}
-              </a>
-            </div>
-
-            {viewerSrc ? (
-              <iframe
-                title={selectedDocument.title}
-                src={viewerSrc}
-                style={{
-                  width: "100%",
-                  height: "760px",
-                  border: "1px solid #d8e7f1",
-                  background: "#ffffff",
-                  display: "block",
-                }}
-              />
-            ) : (
-              <div
-                style={{
-                  border: "1px solid #d8e7f1",
-                  padding: "32px",
-                  background: "#ffffff",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "22px",
-                    marginBottom: "12px",
-                  }}
-                >
-                  Excel preview will work after deployment.
-                </h3>
-
-                <p
-                  style={{
-                    color: "#40566b",
-                    lineHeight: "1.6",
-                    maxWidth: "700px",
-                    marginBottom: "18px",
-                  }}
-                >
-                  Excel files usually cannot preview from localhost because
-                  Microsoft’s viewer needs the file to be publicly available
-                  online. After deploying to Vercel and setting
-                  NEXT_PUBLIC_SITE_URL, the Excel viewer should load here.
-                </p>
-
-                <a
-                  href={selectedDocument.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-block",
-                    border: "1px solid #111",
-                    padding: "10px 16px",
-                    fontSize: "13px",
-                    color: "#111",
-                    textDecoration: "none",
-                  }}
-                >
-                  Open File Directly
-                </a>
-              </div>
-            )}
-          </div>
-        )}
       </section>
 
       <footer>
