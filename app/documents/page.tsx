@@ -224,32 +224,34 @@ export default async function DocumentsPage({
 
   return (
     <main>
-      <section className="documents-hero">
-        <div className="section-shell">
-          <p className="eyebrow">Research Library</p>
+      {!selectedDocument && (
+        <section className="documents-hero">
+          <div className="section-shell">
+            <p className="eyebrow">Research Library</p>
 
-          <h1>Documents</h1>
+            <h1>Documents</h1>
 
-          <p>
-            Company research, investment screens, financial summaries,
-            qualitative assessments, and valuation work.
-          </p>
-        </div>
-      </section>
+            <p>
+              Company research, investment screens, financial summaries,
+              qualitative assessments, and valuation work.
+            </p>
+          </div>
+        </section>
+      )}
 
       {selectedDocument && (
         <section
           id="document-viewer"
           style={{
             width: "100%",
-            padding: "46px 24px 70px",
-            scrollMarginTop: "100px",
+            padding: "26px 18px 42px",
+            scrollMarginTop: "72px",
             borderBottom: "1px solid #d8e7f1",
           }}
         >
           <div
             style={{
-              width: "min(1600px, calc(100vw - 48px))",
+              width: "min(1720px, calc(100vw - 36px))",
               margin: "0 auto",
             }}
           >
@@ -259,7 +261,7 @@ export default async function DocumentsPage({
                 justifyContent: "space-between",
                 gap: "24px",
                 alignItems: "flex-end",
-                marginBottom: "22px",
+                marginBottom: "16px",
               }}
             >
               <div>
@@ -269,21 +271,21 @@ export default async function DocumentsPage({
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
                     color: "#004b78",
-                    marginBottom: "10px",
+                    marginBottom: "8px",
                   }}
                 >
                   {selectedDocument.sectionTitle}
                 </p>
 
-                <h2
+                <h1
                   style={{
                     fontSize: "34px",
-                    lineHeight: "1.15",
+                    lineHeight: "1.12",
                     margin: 0,
                   }}
                 >
                   {selectedDocument.title}
-                </h2>
+                </h1>
               </div>
 
               <div
@@ -291,13 +293,14 @@ export default async function DocumentsPage({
                   display: "flex",
                   gap: "12px",
                   alignItems: "center",
+                  paddingBottom: "2px",
                 }}
               >
                 <a
                   href="/documents"
                   style={{
                     border: "1px solid #d8e7f1",
-                    padding: "11px 16px",
+                    padding: "10px 15px",
                     fontSize: "13px",
                     color: "#111",
                     textDecoration: "none",
@@ -314,7 +317,7 @@ export default async function DocumentsPage({
                   rel="noopener noreferrer"
                   style={{
                     border: "1px solid #111",
-                    padding: "11px 16px",
+                    padding: "10px 15px",
                     fontSize: "13px",
                     color: "#111",
                     textDecoration: "none",
@@ -331,12 +334,12 @@ export default async function DocumentsPage({
               <div
                 style={{
                   width: "100%",
-                  height: "82vh",
-                  minHeight: "760px",
+                  height: "calc(100vh - 205px)",
+                  minHeight: "660px",
                   border: "1px solid #d8e7f1",
                   background: "#ffffff",
                   overflow: "hidden",
-                  boxShadow: "0 18px 45px rgba(0, 33, 55, 0.08)",
+                  boxShadow: "0 16px 42px rgba(0, 33, 55, 0.08)",
                 }}
               >
                 {selectedIsOfficeFile ? (
@@ -418,7 +421,16 @@ export default async function DocumentsPage({
         </section>
       )}
 
-      <section className="documents-section">
+      <section
+        className="documents-section"
+        style={
+          selectedDocument
+            ? {
+                paddingTop: "42px",
+              }
+            : undefined
+        }
+      >
         <div className="documents-panel">
           {documentSections.map((section) => (
             <div key={section.title} className="documents-group">
