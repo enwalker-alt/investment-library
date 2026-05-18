@@ -6,7 +6,7 @@ const resumeHref = "/resume/Ellis-Walker-Resume.pdf";
 const timelineItems = [
   {
     year: "2018",
-    title: "Fintech Bank Startup (IFEB) - Intern",
+    title: "IFEB (Fintech Bank Startup) - Intern",
     bullets: [
       "First exposure to finance, banking, and entrepreneurship through work connected to a fintech banking environment.",
       "Observed how financial products, business operations, and entrepreneurial decision-making interact in practice.",
