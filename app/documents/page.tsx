@@ -31,31 +31,31 @@ const sections = [
   {
     title: "General Thesis",
     description:
-      "Broad investment memos, market observations, portfolio principles, and high-level research views.",
+      "High-level investment ideas, industry notes, and research themes.",
     folder: "general-thesis",
   },
   {
     title: "Initial Screenings",
     description:
-      "First-pass company screens focused on business simplicity, valuation, financial strength, and research priority.",
+      "First-pass reviews to decide whether a company is worth deeper research.",
     folder: "initial-screenings",
   },
   {
     title: "Financial Summaries",
     description:
-      "Company-level financial notes, ratio summaries, ROIC work, capital allocation history, and balance sheet review.",
+      "Historical financials, key ratios, returns on capital, and balance sheet notes.",
     folder: "financial-summaries",
   },
   {
     title: "Qualitative Assessments",
     description:
-      "Deeper business reviews covering durability, competitive position, management, reinvestment, and long-term risks.",
+      "Business quality reviews focused on durability, competition, management, and risks.",
     folder: "qualitative-assessments",
   },
   {
     title: "Valuation Models",
     description:
-      "Valuation workbooks, DCFs, normalized earnings models, scenario analysis, and margin-of-safety estimates.",
+      "DCF models, earnings estimates, valuation ranges, and target entry prices.",
     folder: "valuation-models",
   },
 ];
@@ -232,8 +232,7 @@ export default async function DocumentsPage({
             <h1>Documents</h1>
 
             <p>
-              Company research, investment screens, financial summaries,
-              qualitative assessments, and valuation work.
+              Research organized from first-pass screens to historical financial analysis, business quality reviews, and valuation models.
             </p>
           </div>
         </section>
