@@ -12,6 +12,7 @@ export default function Navbar() {
 
         <nav className="nav-links">
           <Link href="/documents">Research Library</Link>
+          <Link href="/reports">Reports</Link>
           <a href={resumeHref} target="_blank" rel="noopener noreferrer">
             Resume
           </a>
