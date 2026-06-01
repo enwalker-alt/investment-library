@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
@@ -225,15 +226,67 @@ export default async function DocumentsPage({
   return (
     <main>
       {!selectedDocument && (
-        <section className="documents-hero">
-          <div className="section-shell">
-            <p className="eyebrow">Research Library</p>
+        <section
+          className="documents-hero"
+          style={{
+            padding: "118px 0 58px",
+          }}
+        >
+          <div
+            className="section-shell"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "minmax(340px, 0.82fr) minmax(560px, 1.18fr)",
+              gap: "64px",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                maxWidth: "640px",
+              }}
+            >
+              <p className="eyebrow">Research Library</p>
 
-            <h1>Documents</h1>
+              <h1>Documents</h1>
 
-            <p>
-              Research organized from first-pass screens to historical financial analysis, business quality reviews, and valuation models.
-            </p>
+              <p
+                style={{
+                  maxWidth: "610px",
+                }}
+              >
+                Research organized from first-pass screens to historical
+                financial analysis, business quality reviews, and valuation
+                models.
+              </p>
+            </div>
+
+            <div
+              style={{
+                width: "100%",
+                maxWidth: "610px",
+                marginLeft: "auto",
+                border: "1px solid #d8e2e8",
+                borderRadius: "28px",
+                padding: "8px",
+                background: "#ffffff",
+                boxShadow: "0 26px 76px rgba(20, 40, 60, 0.09)",
+              }}
+            >
+              <Image
+                src="/images/research-process.png"
+                alt="Investment research process diagram"
+                width={1200}
+                height={1200}
+                priority
+                style={{
+                  display: "block",
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "20px",
+                }}
+              />
+            </div>
           </div>
         </section>
       )}
@@ -427,7 +480,9 @@ export default async function DocumentsPage({
             ? {
                 paddingTop: "42px",
               }
-            : undefined
+            : {
+                paddingTop: "40px",
+              }
         }
       >
         <div className="documents-panel">

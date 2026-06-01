@@ -57,7 +57,8 @@ export default function HomePage() {
             <h1>Ellis Walker</h1>
 
             <p className="hero-subtitle">
-              Private markets analyst building a public record of independent investment research.
+              Private markets analyst building a public record of independent
+              investment research.
             </p>
 
             <div className="button-row">

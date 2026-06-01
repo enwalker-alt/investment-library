@@ -156,7 +156,7 @@ a {
   align-items: center;
 }
 
-.hero h1 {
+.hero-copy h1 {
   margin: 0;
   font-size: clamp(52px, 7vw, 86px);
   line-height: 0.98;
