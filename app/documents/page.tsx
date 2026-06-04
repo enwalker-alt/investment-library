@@ -61,7 +61,7 @@ const sections = [
   },
 ];
 
-const allowedExtensions = [".pdf", ".xlsx", ".xls", ".csv", ".docx"];
+const allowedExtensions = [".pdf", ".xlsx", ".xls", ".xlsm", ".csv", ".docx"];
 
 function formatTitle(fileName: string) {
   const extension = path.extname(fileName);
@@ -77,7 +77,8 @@ function formatTitle(fileName: string) {
 function formatType(fileName: string) {
   const extension = path.extname(fileName).replace(".", "").toUpperCase();
 
-  if (extension === "XLSX" || extension === "XLS") return "Excel";
+  if (extension === "XLSX" || extension === "XLS" || extension === "XLSM")
+    return "Excel";
   if (extension === "DOCX") return "Word";
   if (extension === "CSV") return "CSV";
   if (extension === "PDF") return "PDF";
@@ -155,6 +156,7 @@ function isOfficeFile(doc: DocumentFile) {
   return (
     doc.extension === ".xlsx" ||
     doc.extension === ".xls" ||
+    doc.extension === ".xlsm" ||
     doc.extension === ".docx"
   );
 }
