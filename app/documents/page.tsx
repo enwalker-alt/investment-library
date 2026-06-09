@@ -652,7 +652,7 @@ export default async function DocumentsPage({
         <section
           className="documents-hero"
           style={{
-            padding: "72px 0 44px",
+            padding: "72px 0 24px",
           }}
         >
           <div
@@ -689,11 +689,6 @@ export default async function DocumentsPage({
                 width: "100%",
                 maxWidth: "470px",
                 marginLeft: "auto",
-                border: "1px solid #d8e2e8",
-                borderRadius: "24px",
-                padding: "7px",
-                background: "#ffffff",
-                boxShadow: "0 22px 60px rgba(20, 40, 60, 0.08)",
               }}
             >
               <Image
@@ -706,7 +701,7 @@ export default async function DocumentsPage({
                   display: "block",
                   width: "100%",
                   height: "auto",
-                  borderRadius: "18px",
+                  borderRadius: "0",
                 }}
               />
             </div>
@@ -899,85 +894,13 @@ export default async function DocumentsPage({
       <section
         id="research-index"
         style={{
-          padding: selectedDocument ? "42px 0 38px" : "40px 0 42px",
+          padding: selectedDocument ? "30px 0 38px" : "24px 0 42px",
           borderBottom: "1px solid #d8e7f1",
           background: "#fbfdff",
           scrollMarginTop: "82px",
         }}
       >
         <div className="section-shell">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-              gap: "14px",
-              marginBottom: "36px",
-              alignItems: "stretch",
-            }}
-          >
-            {[
-              {
-                label: "Initial Screens",
-                value: RESEARCH_STATS.initialScreenedCompanies,
-              },
-              {
-                label: "Financial Summaries",
-                value: financialSummaryCount,
-              },
-              {
-                label: "Qualitative Assessments",
-                value: qualitativeAssessmentCount,
-              },
-              {
-                label: "Valuations Completed",
-                value: valuationCompletedCount,
-              },
-              {
-                label: "Public Valuation Samples",
-                value: publicValuationCount,
-              },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                style={{
-                  border: "1px solid #d8e7f1",
-                  background: "#ffffff",
-                  padding: "20px 18px 18px",
-                  minHeight: "112px",
-                  boxShadow: "0 10px 30px rgba(20, 40, 60, 0.035)",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-              >
-                <p
-                  style={{
-                    margin: 0,
-                    minHeight: "34px",
-                    fontSize: "11px",
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "#6b7c8f",
-                    lineHeight: 1.35,
-                  }}
-                >
-                  {stat.label}
-                </p>
-
-                <strong
-                  style={{
-                    display: "block",
-                    fontSize: "34px",
-                    lineHeight: 1,
-                    marginTop: "14px",
-                  }}
-                >
-                  {stat.value}
-                </strong>
-              </div>
-            ))}
-          </div>
-
           <div
             style={{
               marginBottom: "22px",
@@ -994,7 +917,7 @@ export default async function DocumentsPage({
                   fontWeight: 700,
                 }}
               >
-                Company-Level Research Database
+                Company Index
               </p>
 
               <h2
@@ -1015,9 +938,9 @@ export default async function DocumentsPage({
                   margin: 0,
                 }}
               >
-                A company-level view of the research library. Financial
-                summaries and qualitative assessments are public where
-                available. Most valuation work, including active models, strike
+                A company-level index of the public research library. Financial
+                summaries and qualitative assessments are available where
+                published. Most valuation work, including active models, strike
                 prices, and buy-zone assumptions, is maintained privately.
               </p>
             </div>
@@ -1027,14 +950,9 @@ export default async function DocumentsPage({
             style={{
               border: "1px solid #d8e7f1",
               background: "#ffffff",
-              boxShadow: "0 18px 48px rgba(20, 40, 60, 0.06)",
+              boxShadow: "0 10px 30px rgba(20, 40, 60, 0.035)",
             }}
           >
-            <ResearchPagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-            />
-
             <div
               style={{
                 overflowX: "auto",
@@ -1202,7 +1120,7 @@ export default async function DocumentsPage({
               borderRadius: "26px",
               background: "#ffffff",
               overflow: "hidden",
-              boxShadow: "0 24px 70px rgba(20, 40, 60, 0.07)",
+              boxShadow: "0 12px 38px rgba(20, 40, 60, 0.045)",
             }}
           >
             <div
