@@ -75,6 +75,7 @@ const MANUAL_CURRENT_VIEWS: Record<string, CurrentView> = {
   "Carriage Services, Inc.": "Watchlist",
   "Helen Of Troy Limited": "Watchlist",
   "Helen of Troy Limited": "Watchlist",
+  "John B. Sanfilippo & Son, Inc. ": "Watchlist",
 };
 
 const sections = [
