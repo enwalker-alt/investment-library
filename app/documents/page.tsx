@@ -22,7 +22,7 @@ type DocumentSection = {
   documents: DocumentFile[];
 };
 
-type CurrentView = "QA Failed" | "Under Review" | "Watchlist";
+type CurrentView = "QA Failed" | "Under Review" | "Watchlist" | "Merger Pending";
 
 type ValuationStatus = "Published Sample" | "Internal Only" | "Not Started";
 
@@ -76,6 +76,7 @@ const MANUAL_CURRENT_VIEWS: Record<string, CurrentView> = {
   "Helen Of Troy Limited": "Watchlist",
   "Helen of Troy Limited": "Watchlist",
   "John B. Sanfilippo & Son, Inc. ": "Watchlist",
+  "Nathan's Famous, Inc.": "Merger Pending"
 };
 
 const sections = [
