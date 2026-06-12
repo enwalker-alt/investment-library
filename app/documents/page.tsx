@@ -485,6 +485,14 @@ function getViewBadgeStyles(view: CurrentView) {
     };
   }
 
+  if (view === "Merger Pending") {
+    return {
+      background: "#fff4f1",
+      color: "#9b3b21",
+      border: "1px solid #edc7bb",
+    };
+  }
+  
   return {
     background: "#fff9ec",
     color: "#7c5b14",
